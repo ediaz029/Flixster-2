@@ -13,7 +13,7 @@ import com.bumptech.glide.Glide
 const val ARTICLE_EXTRA = "ARTICLE_EXTRA"
 private const val TAG = "ArticleAdapter"
 
-class ArticleAdapter(private val context: Context) :
+class ArticleAdapter(private val context: Context, private val articles: List<Article>) :
     RecyclerView.Adapter<ArticleAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -39,6 +39,14 @@ class ArticleAdapter(private val context: Context) :
         }
 
         // TODO: Write a helper method to help set up the onBindViewHolder method
+        fun bind(article: Article) {
+            titleTextView.text = article.headline?.main
+            abstractTextView.text = article.abstract
+
+            Glide.with(context)
+                .load(article.mediaImageUrl)
+                .into(mediaImageView)
+        }
 
         override fun onClick(v: View?) {
             // TODO: Get selected article
