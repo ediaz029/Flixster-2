@@ -18,6 +18,9 @@
         <!-- Detail Activity -->
         <activity android:name=".DetailActivity"
             android:exported="true" />
+        <!-- Detail Activity for celeb-->
+        <activity android:name=".DetailActivityCeleb"
+            android:exported="true" />
         <!-- Main Activity -->
         <activity
             android:name=".MainActivity"
